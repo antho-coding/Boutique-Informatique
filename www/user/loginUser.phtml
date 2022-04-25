@@ -1,0 +1,19 @@
+<form class="form-connect-user" action="index.php?action=connectAccount" method="post">
+    <fieldset>
+        <legend>Connexion</legend>
+        <div class="container-logo">
+            <a href="index.php"><img id="logo" class="logo" src="www/img/LBPI-1.png" alt="logo" /></a>
+        </div>
+        <div>
+            <label for="mail"></label>
+            <input type="text" name="email" id="mail" placeholder="E-mail" required>
+        </div>
+        <div>
+            <label for="password"></label>
+            <input type="password" name="password" id="password" placeholder="Mot de passe" required>
+            <a href="index.php?action=forgotPassword" class="forgot-password">Mot de passe oublié?</a>
+        </div>
+        <input class="btn-submit-form" type="submit" value="Connexion">
+    </fieldset>
+    <p>Pas de compte?<a href="index.php?action=createAccount">Cliquez-ici !</a></p>
+</form>

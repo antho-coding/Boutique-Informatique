@@ -1,0 +1,50 @@
+<form class="form-connect-user form-create-user" action="index.php?action=createAccount" method="post">
+    <fieldset>
+        <legend>Informations principales</legend>
+        <div class="container-logo">
+            <a href="index.php"><img id="logo" class="logo" src="www/img/LBPI-1.png" alt="logo" /></a>
+        </div>
+        <div>
+            <label for="name"></label>
+            <input type="text" name="name" id="name" placeholder="Nom" required>
+        </div>
+        <div>
+            <label for="lastname"></label>
+            <input type="text" name="prenom" id="lastname" placeholder="Prenom" required>
+        </div>
+        <div>
+            <label for="mail"></label>
+            <input type="text" name="email" id="mail" placeholder="E-mail" required>
+        </div>
+        <div class="container-pass">
+            <label for="password"></label>
+            <input type="password" name="password" id="password" placeholder="Mot de passe securisé" required>
+            <small id="security-password"></small>
+        </div>
+        <div class="container-pass">
+            <label for="confirm-password"></label>
+            <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirmer votre mot de passe" required>
+            <small id="check-password"></small>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Informations complémentaires</legend>
+        <div>
+            <label for="phone"></label>
+            <input type="text" name="phone" id="phone" placeholder="Téléphone">
+        </div>
+        <div>
+            <label for="adress"></label>
+            <input type="text" name="adress" id="adress" placeholder="Adresse">
+        </div>
+        <div>
+            <label for="code-postal"></label>
+            <input type="text" name="code_postal" id="code-postal" placeholder="Code postal">
+        </div>
+        <div>
+            <label for="city"></label>
+            <input type="text" name="city" id="city" placeholder="Ville">
+        </div>
+    </fieldset>
+    <input class="btn-submit-form" id="btn-submit-form" type="submit" value="Soumettre">
+</form>

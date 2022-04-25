@@ -1,0 +1,121 @@
+<?php
+$connectAdmin = new AdminController();
+?>
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?= $title ?></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" type="text/css" />
+    <link rel="stylesheet" href="www/css/styles.css" />
+</head>
+
+<body>
+    <?php if ($connectAdmin->verifySessionAdmin()) : ?>
+        <div class="container-dashboard">
+            <nav class="nav-admin">
+                <div class="container-logo">
+                    <a href="index.php?action=deconnectAccountAdmin"><img id="logo" class="logo" src="www/img/LBPI-1.png" alt="logo" /></a>
+                    <h1>Panneau Administrateur</h1>
+                </div>
+                <div>
+                    <p class="welcome-user">Bonjour, <?= $_SESSION['Admin']['Prenom'] ?></p>
+                </div>
+                <div>
+                    <ul>
+                        <li><i class="fas fa-store">Boutique</i>
+                            <ul class="sub-menu">
+                                <li><a href="index.php?action=manageShop">Gestion des produits</a></li>
+                            </ul>
+                        </li>
+                        <li><i class="fas fa-images">Slider</i>
+                            <ul class="sub-menu">
+                                <li><a href="index.php?action=manageSlider">Gestion des slides</a></li>
+                            </ul>
+                        </li>
+                        <li><i class="fas fa-tools">Prestation</i>
+                            <ul class="sub-menu">
+                                <li><a href="index.php?action=manageRepair">Gestions des prestations</a></li>
+                            </ul>
+                        </li>
+                        <li><i class="fas fa-file-contract">Formulaire</i>
+                            <ul class="sub-menu">
+                                <li><a href="index.php?action=manageForm">Gestion des Formulaires</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+            </nav>
+
+            <main class="container">
+
+                <?php if (isset($error)) : ?>
+                    <div class="container-error">
+                        <p class="error-message"> <?= $error ?></p>
+                    </div>
+                <?php endif; ?>
+
+                <!--partie dynamique -->
+                <?php if (isset($template)) : ?>
+                    <?php require $template . ".phtml"; ?>
+                <?php endif ?>
+
+            </main>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-bloc">
+                <h3>Contact</h3>
+                <address>
+                    <div class="adress-bloc bloc">
+                        <p class="title title-adress">Adresse:</p>
+                        <p>6 impasse ampère</p>
+                        <p>28100 Dreux</p>
+                    </div>
+                    <div class="email-bloc bloc">
+                        <p class="title title-mail">Email:</p>
+                        <a href="mailto:monsite@monsite.com">monsite@monsite.com</a><br>
+                    </div>
+                    <div class="phone-bloc bloc">
+                        <p class="title title-phone">Tel:</p>
+                        <a href="tel:06.01.02.03.04">06.01.02.03.04</a>
+                    </div>
+                </address>
+                <div class="social-medias">
+                    <div class="bloc">
+                        <a href="https://twitter.com"><i class=" fab fa-twitter"></i></a>
+                        <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com"><i class="fab fa-instagram-square"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bloc">
+                <h3>Nos prestations</h3>
+                <ul>
+                    <li class="items-prestations">Dépannage Ordinateur</li>
+                    <li class="items-prestations">Dépannage périphériques</li>
+                    <li class="items-prestations">Dépannage Box internet</li>
+                    <li class="items-prestations">Dépannage à distance</li>
+                    <li class="items-prestations">Assistance Informatique</li>
+                    <li class="items-prestations">Cours et formations internet</li>
+                </ul>
+            </div>
+            <div class="footer-bloc">
+                <h3>A propos</h3>
+                <p>Notre ouverture est prevu courant de l'été 2022.</p>
+                <p>Notre équipe de proximité interviendra à votre domicile pour dépanner votre ordinateur sur Dreux ou ses alentours.</p>
+                <p>N'hésiter pas à nous suivre des nos reseaux sociaux pour suivre toutes nos annonces.</p>
+                <p>Si vous rencontrez un probléme, n'hésiter pas nous sommes la pour vous.</p>
+            </div>
+        </footer>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="www/js/searchBar.js"></script>
+    <?php else : ?>
+        <?php header("location:index.php") ?>
+    <?php endif; ?>
+</body>
+
+</html>

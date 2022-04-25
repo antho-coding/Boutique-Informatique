@@ -1,0 +1,17 @@
+<?php $connectUser = new UserController ?>
+
+<section class="basket">
+    <h3>Votre panier</h3>
+    <table class="show-basket">
+        <thead id="head-detail-basket"></thead>
+        <tbody id="show-detail-basket"></tbody>
+    </table>
+    <div id="show-amount"></div>
+    <div id="visible-validate" class="visible-validate">
+        <?php if ($connectUser->verifySessionUser()) : ?>
+            <div><button class="confirm-order" id="confirm-order" type="button">Valider votre commande</button></div>
+        <?php else : ?>
+            <p class="text-validate">Pour valider votre commande merci de <a href="index.php?action=connectAccount">Vous connecter</a></p>
+        <?php endif ?>
+    </div>
+</section>

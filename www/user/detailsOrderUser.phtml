@@ -1,0 +1,48 @@
+<section class="areaUser details-order-user">
+    <div class="containerUser">
+        <div class="last-order">
+            <div class="welcome-user">
+                <nav>
+                    <ul>
+                        <li class="myOrder"><a href="#">Mes commandes</a></li>
+                        <li class="myInformations"><a href="index.php?action=displayInformationUser"> Mes informations personnelles</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="container-select">
+                <div>
+                    <select id="choice-order">
+                        <option value="0">Merci de choisir votre commande...</option>
+                        <?php foreach ($allOrders as $allOrder) : ?>
+                            <option value="<?= $allOrder["ID"] ?>">Commande du <?= $allOrder["Date"] ?></option>
+                        <?php endforeach ?>
+                    </select>
+                </div>
+                <div id="container-product" class="container-product">
+                    <div class="choice-order">
+                        <div>
+                            <h4>Ma commande du <?= $lastOrder["Date"] ?></h4>
+                            <small>Montant total <?= $lastOrder["Prix_total"] . " €" ?></small>
+                            <small>Vendu par La P'tite Boutique Informatique</small>
+                            <small>Retrait dans notre boutique</small>
+                        </div>
+                        <a id="download-btn" target="_blank" href="index.php?action=generateInvoice&idInvoice=<?= $lastOrder["ID_commande"] ?>"><button>Telecharger la facture</button></a>
+                    </div>
+                    <?php foreach ($lastDetailsOrder as $lastDetailOrder) : ?>
+                        <div class="container-last-order">
+                            <div>
+                                <img src="www/img/images-shop/<?= $lastDetailOrder["Photo"] ?>" alt="picture-last-order">
+                            </div>
+                            <div class="detail-last-order">
+                                <p><?= $lastDetailOrder["Produit"] ?></p>
+                                <small>Commandé le <?= $lastDetailOrder["Date"] ?></small>
+                                <p><?= $lastDetailOrder["Prix_unitaire"] . " €" ?></p>
+                                <small>Quantité : <?= $lastDetailOrder["Quantite"] ?></small>
+                            </div>
+                        </div>
+                    <?php endforeach ?>
+                </div>
+                <div id="choiceOrder"></div>
+            </div>
+        </div>
+</section>

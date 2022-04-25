@@ -1,0 +1,111 @@
+<?php $connectUser = new UserController() ?>
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><?= $title ?></title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" type="text/css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+  <link rel="stylesheet" href="www/css/normalize.css" />
+  <link rel="stylesheet" href="www/css/styles.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="container-logo">
+      <a href="index.php"><img id="logo" class="logo" src="www/img/LBPI-1.png" alt="logo" /></a>
+    </div>
+    <nav>
+      <ul>
+        <li><a class="<?php echo isset($_GET['action']) && $_GET['action'] == "home" || !isset($_GET['action']) ? "active-item" : "" ?>" href="index.php?action=home">Accueil</a></li>
+        <li><a class="<?php echo isset($_GET['action']) && $_GET['action'] == "shop" ? "active-item" : "" ?>" href="index.php?action=shop">Boutique</a></li>
+        <li><a class="<?php echo isset($_GET['action']) && $_GET['action'] == "displayPrestation" ? "active-item" : "" ?>" href="index.php?action=displayPrestation">Prestations</a></li>
+        <li><a class="<?php echo isset($_GET['action']) && $_GET['action'] == "contact" ? "active-item" : "" ?>" href="index.php?action=contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="menu-connect">
+      <div id="shopping" class="shopping">
+        <a id="show-basket" href="index.php?action=showCaddie"><i class="fas fa-shopping-cart"></i></a>
+        <span class="counter-product"></span>
+      </div>
+      <div>
+        <?php if ($connectUser->verifySessionUser() == false) : ?>
+          <a href="index.php?action=connectAccount">Me connecter</a>
+        <?php else : ?>
+          <a href="index.php?action=userArea"><i class="fas fa-user"></i></a>
+          <a href="index.php?action=deconnectAccount">Me deconnecter</a>
+        <?php endif ?>
+      </div>
+    </div>
+
+  </header>
+
+  <main class="container">
+
+    <?php if (isset($error)) : ?>
+      <div class="container-error">
+        <small class="error-message"> <?= $error ?></small>
+      </div>
+    <?php endif; ?>
+
+    <!--partie dynamique -->
+    <?php require $template . ".phtml"; ?>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-bloc">
+      <h3>Contact</h3>
+      <address>
+        <div class="adress-bloc bloc">
+          <p class="title title-adress">Adresse:</p>
+          <p>6 impasse ampère</p>
+          <p>28100 Dreux</p>
+        </div>
+        <div class="email-bloc bloc">
+          <p class="title title-mail">Email:</p>
+          <a href="mailto:monsite@monsite.com">monsite@monsite.com</a><br>
+        </div>
+        <div class="phone-bloc bloc">
+          <p class="title title-phone">Tel:</p>
+          <a href="tel:06.01.02.03.04">06.01.02.03.04</a>
+        </div>
+      </address>
+      <div class="social-medias">
+        <div class="bloc">
+          <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
+          <a href="https://www.instagram.com"><i class="fab fa-instagram-square"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bloc">
+      <h3>Nos prestations</h3>
+      <ul>
+        <li class="items-prestations">Dépannage Ordinateur</li>
+        <li class="items-prestations">Dépannage périphériques</li>
+        <li class="items-prestations">Dépannage Box internet</li>
+        <li class="items-prestations">Dépannage à distance</li>
+        <li class="items-prestations">Assistance Informatique</li>
+        <li class="items-prestations">Cours et formations internet</li>
+      </ul>
+    </div>
+    <div class="footer-bloc">
+      <h3>A propos</h3>
+      <p>Notre ouverture est prevu courant de l'été 2022.</p>
+      <p>Notre équipe de proximité interviendra à votre domicile pour dépanner votre ordinateur sur Dreux ou ses alentours.</p>
+      <p>N'hésiter pas à nous suivre des nos reseaux sociaux pour suivre toutes nos annonces.</p>
+      <p>Si vous rencontrez un probléme, n'hésiter pas nous sommes la pour vous.</p>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="www/js/shopOrder.js"></script>
+  <script src="www/js/searchBar.js"></script>
+  <script src="www/js/displayOrder.js"></script>
+</body>
+
+</html>

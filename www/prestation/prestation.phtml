@@ -1,0 +1,89 @@
+<article class="page-prestation">
+    <h3>Tarifs particulier 2022</h3>
+    <p>La P'tite boutique vous fournis des tarifs compétitifs sur toutes les prestations proposées...<br>
+        Dépannage ordinateur (PC), périphériques & Box Internet ou cours & formations en informatique, nous répondons à l'ensemble de vos besoins aux alentours de Dreux</p>
+    <section>
+        <h3>Dépannage Ordinateur</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th class="celulle-one">Catégorie</th>
+                    <th class="celulle-two">Tâche</th>
+                    <th>Prix</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($prestationsComputer as $prestationComputer) : ?>
+                    <tr>
+                        <td class="celulle-one"><?= $prestationComputer["Categorie"] ?></td>
+                        <td class="text-left celulle-two"><?= $prestationComputer["Tache"] ?></td>
+                        <td><?= $prestationComputer["Prix"] . "€" . " /heure" ?></td>
+                    </tr>
+                <?php endforeach ?>
+            </tbody>
+        </table>
+    </section>
+    <section>
+        <h3>Dépannage Périphérique</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th class="celulle-one">Catégorie</th>
+                    <th class="celulle-two">Tâche</th>
+                    <th>Prix</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($prestationsPeripheral as $prestationPeripheral) : ?>
+                    <tr>
+                        <td class="celulle-one"><?= $prestationPeripheral["Categorie"] ?></td>
+                        <td class="text-left celulle-two"><?= $prestationPeripheral["Tache"] ?></td>
+                        <td><?= $prestationPeripheral["Prix"] . "€" . " /heure" ?></td>
+                    </tr>
+                <?php endforeach ?>
+            </tbody>
+        </table>
+    </section>
+    <section>
+        <h3>Dépannage Box Internet</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th class="celulle-one">Catégorie</th>
+                    <th class="celulle-two">Tâche</th>
+                    <th>Prix </th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($prestationsInternet as $prestationInternet) : ?>
+                    <tr>
+                        <td class="celulle-one"><?= $prestationInternet["Categorie"] ?></td>
+                        <td class="text-left celulle-two"><?= $prestationInternet["Tache"]  ?></td>
+                        <td><?= $prestationInternet["Prix"] . "€" . " /heure" ?></td>
+                    </tr>
+                <?php endforeach ?>
+            </tbody>
+        </table>
+    </section>
+    <section>
+        <h3>Dépannage à distance</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th class="celulle-one">Catégorie</th>
+                    <th class="celulle-two">Tâche</th>
+                    <th>Prix </th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($prestationsRemote as $prestationRemote) : ?>
+                    <tr>
+                        <td><?= $prestationRemote["Categorie"] ?></td>
+                        <td class="text-left "><?= $prestationRemote["Tache"] ?></td>
+                        <td><?= $prestationRemote["Prix"] . "€" . " /heure" ?></td>
+                    </tr>
+                <?php endforeach ?>
+            </tbody>
+        </table>
+    </section>
+</article>

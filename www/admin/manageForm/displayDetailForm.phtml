@@ -1,0 +1,16 @@
+<!-- utilisation d'une div car le plugin pour le telechargement n'accepte pas la balise "section" -->
+<div class="details-form">
+    <h3>Formulaire de contact n°<?= $detailForm["ID"] ?></h3>
+    <div class="data-user">
+        <p><?= $detailForm["Nom"] . " " . $detailForm["Prenom"] ?></p>
+        <p><a class="mail-contact-form" href="mailto:<?= $detailForm["Email"] ?>"><?= $detailForm["Email"] ?></a></p>
+        <p><?= $detailForm["Telephone"] ?></p>
+    </div>
+    <div class="date-form">
+        <p><?= $detailForm["Date"] ?></p>
+    </div>
+    <div class="object-form">
+        <p><?= $detailForm["Sujet"] ?></p>
+        <p><?= $detailForm["Message"] ?></p>
+    </div>
+</div>

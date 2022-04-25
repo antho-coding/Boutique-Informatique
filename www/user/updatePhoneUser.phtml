@@ -1,0 +1,36 @@
+<section class="areaUser information-user update">
+    <div class="container-information">
+        <nav>
+            <ul>
+                <li class="myOrder"><a href="index.php?action=detailslastOrder&idLastOrder=<?= $lastOrder["ID_commande"] ?>">Mes commandes</a></li>
+                <li class="myInformations"><a href="index.php?action=displayInformationUser">Mes informations personnelles</a></li>
+            </ul>
+        </nav>
+        <div class="container-update">
+            <h3>Modifier le téléphone :</h3>
+            <div class="container-txt-update">
+                <p>Utilisez le formulaire ci-dessous pour modifier le téléphone de votre compte.</p>
+                <p>Ce nouveau téléphone sera utilisé pour vous contacter quand votre commande sera à votre disposition dans notre boutique</p>
+            </div>
+            <div>
+                <p class="bold-text">Ancien téléphone :</p>
+                <p><span><?= $infoUser["Telephone"] ?></span></p>
+            </div>
+            <form action="index.php?action=updateDataUser&phone" method="post">
+                <div class="form-group">
+                    <label for="phone">Nouveau téléphone :</label>
+                    <input type="text" name="phone" id="phone">
+                </div>
+                <div class="form-group">
+                    <label for="phone-confirm">Ressaisir le nouveau téléphone :</label>
+                    <input type="text" name="phone-confirm" id="phone-confirm">
+                </div>
+                <div class="form-group">
+                    <label for="check-password">Mot de passe actuel :</label>
+                    <input type="password" name="password" id="check-password">
+                </div>
+                <input class="update-btn input-update" type="submit" value="Enregistrer la modification">
+            </form>
+        </div>
+    </div>
+</section>

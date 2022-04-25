@@ -1,0 +1,76 @@
+<main class="container">
+    <section class="info">
+        <article class="primary-article">
+            <h3>
+                <i class="fas fa-headphones icons"></i> Diagnostic <br />
+                gratuit
+            </h3>
+            <p>Diagnostic téléphonique <br />gratuit</p>
+        </article>
+        <div class="symbol">+</div>
+        <article class="primary-article">
+            <h3>
+                <i class="fas fa-history icons"></i>
+                Intervention <br />
+                rapide
+            </h3>
+            <p>Assistance en moins de <br />48h !</p>
+        </article>
+        <div class="symbol">+</div>
+        <article class="primary-article">
+            <h3><i class="fas fa-cog icons"></i>Réparation<br />garantie</h3>
+            <p>Réparations en moins de <br />30 jours</p>
+        </article>
+        <div class="symbol">=</div>
+        <article class="primary-article">
+            <h3><i class="fas fa-check icons"></i>100%</h3>
+            <p>de satifaction client !</p>
+        </article>
+    </section>
+    <div class="container-slider">
+        <div class="slider">
+            <div class="img-slider">
+                <?php foreach ($displaySlides as $displaySlide) : ?>
+                    <img src="www/img/images-sliders/<?= $displaySlide["Image"] ?>" alt="pictureForSlider" class="pictureSlider" />
+                <?php endforeach ?>
+                <div class="next-slide" id="next-slide"><i class="fas fa-arrow-left"></i></div>
+                <div class="after-slide" id="after-slide"><i class="fas fa-arrow-right"></i></div>
+            </div>
+        </div>
+    </div>
+    <section class="prestations">
+        <header class="header-section-prestations">
+            <h2>Dépannage et réparation d'ordinateur aux alentours de Dreux</h2>
+            <p>N'hésitez pas à nous contacter pour un devis personalisé</p>
+        </header>
+        <div class="container-prestations">
+            <div class="container-text">
+                <h3 class="title-prestation"><i class="fas fa-tools"></i>Dépannage informatique</h3>
+                <p>Bugs, infections virus, performances ralenties, dysfonctionnements ou bien écran noir. Une intervention rapide & de qualité chez vous.</p>
+            </div>
+            <div class="container-text">
+                <h3 class="title-prestation"><i class="fas fa-desktop"></i>Assistance Informatique</h3>
+                <p>Étude, configuration et réalisation de vos projets informatiques pour une utilisation optimale de tous vos appareils & logiciels.</p>
+            </div>
+            <div class="container-text">
+                <h3 class="title-prestation"><i class="fas fa-cogs"></i>Maintenance Informatique</h3>
+                <p>Mise à jour de programme, entretien matériel, nettoyage PC, nous vous aidons à utiliser votre ordinateur en toute confiance.</p>
+            </div>
+        </div>
+        <div class="container-prestations">
+            <div class="container-text">
+                <h3 class="title-prestation"><i class="fas fa-wifi"></i>Dépannage Box Internet</h3>
+                <p>Installation ou dépannage Box, Wi-Fi ou messagerie email. Pour installer, configurer ou régler un problème relatif à votre Box Internet.</p>
+            </div>
+            <div class="container-text">
+                <h3 class="title-prestation"><i class="fas fa-print"></i>Dépannage périphériques</h3>
+                <p>Un problème avec votre imprimante ? Votre scanner ne fonctionne plus ? Nous intervenons rapidemment à votre domicile !</p>
+            </div>
+            <div class="container-text">
+                <h3 class="title-prestation"><i class="fas fa-book"></i>Cours & Formations Internet</h3>
+                <p>Disponible prochainement, suivez-nous sur nos reseaux !</p>
+            </div>
+        </div>
+    </section>
+</main>
+<script src="www/js/slider.js"></script>

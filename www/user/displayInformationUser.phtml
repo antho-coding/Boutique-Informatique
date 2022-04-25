@@ -1,0 +1,39 @@
+<section class="areaUser information-user">
+    <div class="container-information">
+        <nav>
+            <ul>
+                <li class="myOrder"><a href="index.php?action=detailslastOrder&idLastOrder=<?= $lastOrder["ID_commande"] ?>">Mes commandes</a></li>
+                <li class="myInformations"><a href="index.php?action=displayInformationUser">Mes informations personnelles</a></li>
+            </ul>
+        </nav>
+        <div class="personal-information">
+            <div class="container-info">
+                <div>
+                    <p class="bold-text">E-Mail :</p>
+                    <p><span><?= $infoUser["Mail"] ?></span></p>
+                </div>
+                <div>
+                    <a href="index.php?action=updateDataUser&mail"><button class="update-btn">Modifier</button></a>
+                </div>
+            </div>
+            <div class="container-info">
+                <div>
+                    <p class="bold-text">Mot de passe :</p>
+                    <p><span><?= $infoUser["Password"] ?></span></p>
+                </div>
+                <div>
+                    <a href="index.php?action=updateDataUser&password"><button class="update-btn">Modifier</button></a>
+                </div>
+            </div>
+            <div class="container-info">
+                <div>
+                    <p class="bold-text">Telephone :</p>
+                    <p><span><?= $infoUser["Telephone"] ?></span></p>
+                </div>
+                <div>
+                    <a href="index.php?action=updateDataUser&phone"><button class="update-btn">Modifier</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

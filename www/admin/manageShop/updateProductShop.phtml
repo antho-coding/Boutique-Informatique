@@ -1,0 +1,28 @@
+<section class="add-presta update-presta update-product">
+    <h3>Modification d'un produit</h3>
+    <p>Ici vous trouverez le formulaire pré-rempli pour modifier un produit existant.</p>
+    <div class="container-form">
+        <form action="index.php?action=updateProductShop" class="submit-add-presta contact-form" method="POST" enctype="multipart/form-data">
+            <div class=" form-group">
+                <label for="name">Nom :</label>
+                <input type="text" name="name" id="name" value="<?= $recoveryProduct["Produit"] ?>">
+                <input type="hidden" name="id" value="<?= $recoveryProduct["ID"] ?>">
+                <input type="hidden" name="recoveryPict" value="<?= $recoveryProduct["Photo"] ?>">
+            </div>
+            <div class="form-group">
+                <label for="price">Prix :</label>
+                <input type="text" name="price" id="price" value="<?= $recoveryProduct["Prix"] ?>">
+            </div>
+            <div class="form-group">
+                <label for="description">Description :</label>
+                <textarea name="description" id="description" value="<?= $recoveryProduct["Description"] ?>" cols="30" rows="10"><?= $recoveryProduct["Description"] ?></textarea>
+            </div>
+            <div class="form-group update-picture">
+                <label for="picture">Photo:</label>
+                <img src="www/img/images-shop/<?= $recoveryProduct["Photo"] ?>" alt="picture-product">
+                <input type="file" name="picture" id="picture">
+            </div>
+            <input class="input-contact-form" type="submit" value="Modifier le produit">
+        </form>
+    </div>
+</section>

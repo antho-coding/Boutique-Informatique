@@ -1,0 +1,35 @@
+<section class="shop">
+    <h3>La P'tite boutique</h3>
+    <p>Bienvenue dans notre P'tite boutique en ligne.</p>
+    <p>N'hesitez pas à nous contacter, ou à venir nous voir dans notre boutique.</p>
+
+    <input id="search" class="input-search" type="search" name="search" placeholder="Rechercher un produit...">
+
+    <div id="displaySearch" class="displaySearch"></div>
+    <div class="displayProduct" id="displayProduct">
+        <?php if ($allProducts) : ?>
+            <?php foreach ($allProducts as $Product) : ?>
+                <div class=" card">
+                    <div>
+                        <img class="card-img" src="www/img/images-shop/<?= $Product["Photo"] ?>" alt="picture-product-shop">
+                    </div>
+                    <div>
+                        <p class="card-title"><?= $Product["Produit"] ?></p>
+                        <p><?= $Product["Description"] ?></p>
+                    </div>
+                    <div class="card-price">
+                        <p><?= $Product["Prix"] . "€" ?></p>
+                        <div class="container-input-quantity">
+                            <label for="input-quantity">Quantité:</label>
+                            <input type="number" min="1" max="9" value="0" class="<?= "input-quantity" . $Product["ID"] ?>" id="input-quantity">
+                        </div>
+                        <button class="add-caddie" data-product="<?= $Product["Produit"] ?>" data-description="<?= $Product["Description"] ?>" data-price="<?= $Product["Prix"] ?>" data-id="<?= $Product["ID"] ?>"><i class="fas fa-cart-plus"></i></button>
+                    </div>
+                    <div class="small-hidden">
+                        <small class="<?= "add-text" . $Product["ID"] ?>"></small>
+                    </div>
+                </div>
+            <?php endforeach ?>
+        <?php endif ?>
+    </div>
+</section>

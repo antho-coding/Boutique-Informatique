@@ -1,0 +1,21 @@
+<section class="add-presta">
+    <h3>Ajout d'une prestation</h3>
+    <p>Ici vous trouvez le formulaire pour ajouter une prestation pour l'utilisateur.</p>
+    <div class="container-form">
+        <form action="index.php?action=insertPrestaComputer" class="submit-add-presta contact-form" method="POST">
+            <div class="form-group">
+                <label for="category">Catégorie :</label>
+                <input type="text" name="categorie" id="category" placeholder="Nom de la catégorie">
+            </div>
+            <div class="form-group">
+                <label for="price">Prix :</label>
+                <input type="text" name="prix" id="price" placeholder="Prix de la prestation">
+            </div>
+            <div class="form-group">
+                <label for="description">Description :</label>
+                <textarea name="description" id="description" cols="30" rows="10" placeholder="Description de la prestation..."></textarea>
+            </div>
+            <input class="input-contact-form" type="submit" value="Crée la préstation">
+        </form>
+    </div>
+</section>

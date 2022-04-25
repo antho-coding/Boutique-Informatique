@@ -1,0 +1,35 @@
+<section class="basket manage-shop manage-form">
+    <h3>Gestion des formulaires de contact</h3>
+    <table class="show-basket show-product">
+        <caption>Les 10 derniers formulaires de nos clients</caption>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Email</th>
+                <th>Telephone</th>
+                <th>Sujet</th>
+                <th>Message</th>
+                <th>Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($contactForms as $form) : ?>
+                <tr>
+                    <td data-label="Nom :"><?= $form["Nom"] ?></td>
+                    <td data-label="prenom :"><?= $form["Prenom"] ?></td>
+                    <td data-label="Email :"><a class="mail-contact-form" href="mailto:<?= $form["Email"] ?>"><?= $form["Email"] ?></a></td>
+                    <td data-label="Téléphone :"><?= $form["Telephone"] ?></td>
+                    <td data-label="Sujet :"><?= $form["Sujet"] ?></td>
+                    <td data-label="Message :"><?= substr($form["Message"], 0, 35) ?><a class="see-details-form" href="index.php?action=seeForm&idForm=<?= $form["ID"] ?>"> [...]</a></td>
+                    <td data-label="Date :"><?= $form["Date"] ?></td>
+                    <td data-label="Action :" class="container-btn">
+                        <a href="index.php?action=seeForm&idForm=<?= $form["ID"] ?>"><i class="fas fa-eye"></i></a>
+                        <a href="index.php?action=deleteForm&delId=<?= $form["ID"] ?>"><i class="fas fa-times"></i></a>
+                        <a target="_blank" href="index.php?action=createPdf&idForm=<?= $form["ID"] ?>"><i class="fas fa-file-download"></i></a>
+                    </td>
+                </tr>
+            <?php endforeach ?>
+    </table>
+</section>

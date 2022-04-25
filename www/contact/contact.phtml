@@ -1,0 +1,69 @@
+<section class="contact-page">
+    <div class="container-form">
+        <h4>Formulaire de contact</h4>
+        <p>Notre équipe de techniciens spécialisés en dépannage d'ordinateur, périphériques & Box Internet se feront un plaisir de vous répondre dans les plus brefs délais ! N'hésitez pas à nous contacter !</p>
+        <form class="contact-form" action="index.php?action=contact" method="post">
+            <div class="form-group-global">
+                <div class="form-group">
+                    <label for="name">Nom :</label>
+                    <input type="text" name="nom" id="name" placeholder="Votre nom">
+                </div>
+                <div class="form-group">
+                    <label for="prenom">Prenom :</label>
+                    <input type="text" name="prenom" id="lastname" placeholder="Votre prenom">
+                </div>
+            </div>
+            <div class="form-group-global">
+                <div class="form-group">
+                    <label for="mail">E-mail :</label>
+                    <input type="email" name="email" id="mail" placeholder="Votre e-mail">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Téléphone :</label>
+                    <input type="tel" name="telephone" id="phone" placeholder="Votre téléphone">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="object">Sujet :</label>
+                <input type="text" name="sujet" id="object" placeholder="Sujet du message">
+            </div>
+            <div class="form-group">
+                <label for="text-message">Message:</label>
+                <textarea name="message" id="text-message" cols="30" rows="10" placeholder="Ecrivez votre message ici..."></textarea>
+            </div>
+            <input class="input-contact-form" type="submit" value="Envoyer">
+        </form>
+    </div>
+    <div class="container-map">
+        <div id="map" class="map"></div>
+        <div class="container-hours">
+            <div>
+                <h3>Contact</h3>
+                <address>
+                    <div class="adress-bloc bloc">
+                        <p class="title title-adress">Adresse:</p>
+                        <p>6 impasse ampère</p>
+                        <p>28100 Dreux</p>
+                    </div>
+                    <div class="email-bloc bloc">
+                        <p class="title title-mail">Email:</p>
+                        <a href="mailto:monsite@monsite.com">monsite@monsite.com</a><br>
+                    </div>
+                    <div class="phone-bloc bloc">
+                        <p class="title title-phone">Tel:</p>
+                        <a href="tel:06.01.02.03.04">06.01.02.03.04</a>
+                    </div>
+                </address>
+            </div>
+            <div class="info-client">
+                <h3>Horaires</h3>
+                <p>Du Lundi au Vendredi :</p>
+                <p>09h00 - 18h00</p>
+                <p>Samedi & Dimanche :</p>
+                <p>Fermé</p>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+<script src="www/js/map.js"></script>

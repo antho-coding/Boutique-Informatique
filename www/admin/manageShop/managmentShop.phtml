@@ -1,0 +1,31 @@
+<section class="basket manage-shop">
+    <h3>Gestion de la boutique</h3>
+    <a href="index.php?action=insertProductShop"><button class="add-prestation" type="button">Ajouter un produit</button></a>
+    <input id="searchShop" class="input-search" type="search" name="search" placeholder="Rechercher un produit...">
+    <table class="show-basket show-product">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Designation</th>
+                <th>Descriptiton</th>
+                <th>Prix</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="displaySearchShop" class="displaySearch"></tbody>
+        <tbody id="displayShop">
+            <?php foreach ($displayProductsShop as $displayProductShop) : ?>
+                <tr>
+                    <td><img src="www/img/images-shop/<?= $displayProductShop["Photo"] ?>" alt="picture-product"></td>
+                    <td data-label="Designation :"><?= $displayProductShop["Produit"] ?></td>
+                    <td data-label="Description :"><?= $displayProductShop["Description"] ?></td>
+                    <td data-label="Prix :"><?= $displayProductShop["Prix"] . "€" ?></td>
+                    <td data-label="Action :" class="container-btn">
+                        <a href="index.php?action=updateProductShop&idProduct=<?= $displayProductShop["ID"] ?>"><i class="fas fa-pencil-alt"></i></a>
+                        <a href="index.php?action=deleteProductShop&delId=<?= $displayProductShop["ID"] ?>&picture=<?= $displayProductShop["Photo"] ?>"><i class="fas fa-times"></i></a>
+                    </td>
+                </tr>
+            <?php endforeach ?>
+        </tbody>
+    </table>
+</section>

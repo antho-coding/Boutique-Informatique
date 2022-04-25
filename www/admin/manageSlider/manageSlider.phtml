@@ -1,0 +1,22 @@
+<section class="basket manage-shop manage-slider">
+    <h3>Gestion du slider</h3>
+    <div class="container-form">
+        <form action="index.php?action=manageSlider" class="submit-add-presta contact-form" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="picture">Ajouter une slide:</label>
+                <input type="file" name="picture" id="picture">
+            </div>
+            <input class="input-contact-form" type="submit" value="Ajouter l'image">
+        </form>
+    </div>
+    <h4>Images actuelles:</h4>
+    <div class="container-slide">
+        <?php foreach ($displaySlides as $displaySlide) : ?>
+            <img src="www/img/images-sliders/<?= $displaySlide["Image"] ?>" alt="picture-product" />
+            <div class="container-btn">
+                <a href="index.php?action=manageSlider&delId=<?= $displaySlide["ID"] ?>&picture=<?= $displaySlide["Image"] ?>"><i class="fas fa-times"></i></a>
+            </div>
+        <?php endforeach ?>
+    </div>
+    </table>
+</section>

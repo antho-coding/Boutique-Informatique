@@ -1,0 +1,24 @@
+<div class="container-product">
+    <div class="choice-order">
+        <div>
+            <h4>Ma commande du <?= $uniqOrder["Date"] ?></h4>
+            <small>Montant total <?= $uniqOrder["Prix_total"] . " €" ?></small>
+            <small>Vendu par La P'tite Boutique Informatique</small>
+            <small>Retrait dans notre boutique</small>
+        </div>
+        <a target="_blank" href="index.php?action=generateInvoice&idInvoice=<?= $uniqOrder["ID"] ?>"><button>Telecharger la facture</button></a>
+    </div>
+    <?php foreach ($choiceOrder as $order) : ?>
+        <div class="container-last-order">
+            <div>
+                <img src="www/img/images-shop/<?= $order["Photo"] ?>" alt="picture-last-order">
+            </div>
+            <div class="detail-last-order">
+                <p><?= $order["Produit"] ?></p>
+                <small>Commandé le <?= $order["Date"] ?></small>
+                <p><?= $order["Prix_unitaire"] . " €" ?></p>
+                <small>Quantité :<?= $order["Quantite"] ?></small>
+            </div>
+        </div>
+    <?php endforeach ?>
+</div>

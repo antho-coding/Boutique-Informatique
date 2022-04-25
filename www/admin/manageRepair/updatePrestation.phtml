@@ -1,0 +1,22 @@
+<section class="add-presta update-presta">
+    <h3>Modification d'une prestation</h3>
+    <p>Ici vous trouverez le formulaire pré-rempli pour modifier une prestation existante.</p>
+    <div class="container-form">
+        <form action="index.php?action=updatePrestaComputer" class="submit-add-presta contact-form" method="POST">
+            <div class="form-group">
+                <label for="category">Catégorie :</label>
+                <input type="text" name="categorie" id="category" value="<?= $recoveryPresta["Categorie"] ?>">
+                <input type="hidden" name="id" value="<?= $recoveryPresta["ID"] ?>">
+            </div>
+            <div class="form-group">
+                <label for="price">Prix :</label>
+                <input type="text" name="prix" id="price" value="<?= $recoveryPresta["Prix"] ?>">
+            </div>
+            <div class="form-group">
+                <label for="description">Description :</label>
+                <textarea name="description" id="description" value="<?= $recoveryPresta["Tache"] ?>" cols="30" rows="10"><?= $recoveryPresta["Tache"] ?></textarea>
+            </div>
+            <input class="input-contact-form" type="submit" value="Modifier la prestation">
+        </form>
+    </div>
+</section>

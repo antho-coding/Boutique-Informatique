@@ -1,0 +1,112 @@
+<article class="managment-prestation">
+    <h3>Gestion des prestations</h3>
+    <p>Sur cette page ce trouve l'emsemble des prestations visible sur le site, vous pouvez modifer, ajouter ou supprimer</p>
+    <section>
+        <h3>Dépannage Ordinateur</h3>
+        <a href="index.php?action=insertPrestaComputer"><button class="add-prestation" type="button">Ajouter une prestation</button></a>
+        <table>
+            <thead>
+                <tr>
+                    <th class="celulle-one">Catégorie</th>
+                    <th class="celulle-two">Tâche</th>
+                    <th>Prix</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($prestationsComputer as $prestationComputer) : ?>
+                    <tr>
+                        <td data-label="Catégorie :" class="celulle-one"><?= $prestationComputer["Categorie"] ?></td>
+                        <td data-label="Tâche :" class="text-left celulle-two"><?= $prestationComputer["Tache"] ?></td>
+                        <td data-label="Prix :"><?= $prestationComputer["Prix"] . "€" . " /heure" ?></td>
+                        <td data-label="Action :" class="container-btn">
+                            <a href="index.php?action=updatePrestaComputer&idPresta=<?= $prestationComputer["ID"] ?>"><i class="fas fa-pencil-alt"></i></a>
+                            <a href="index.php?action=deleteRepair&delId=<?= $prestationComputer["ID"] ?>"><i class="fas fa-times"></i></a>
+                        </td>
+                    </tr>
+                <?php endforeach ?>
+            </tbody>
+        </table>
+    </section>
+    <section>
+        <h3>Dépannage Périphérique</h3>
+        <a href="index.php?action=insertPrestaPeripheral"><button class="add-prestation" type="button">Ajouter une prestation</button></a>
+        <table>
+            <thead>
+                <tr>
+                    <th class="celulle-one">Catégorie</th>
+                    <th class="celulle-two">Tâche</th>
+                    <th>Prix</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($prestationsPeripheral as $prestationPeripheral) : ?>
+                    <tr>
+                        <td data-label="Catégorie :" class="celulle-one"><?= $prestationPeripheral["Categorie"] ?></td>
+                        <td data-label="Tâche :" class="text-left celulle-two"><?= $prestationPeripheral["Tache"] ?></td>
+                        <td data-label="Prix :"><?= $prestationPeripheral["Prix"] . "€" . " /heure" ?></td>
+                        <td data-label="Action :" class="container-btn">
+                            <a href="index.php?action=updatePrestaPeripheral&idPresta=<?= $prestationPeripheral["ID"] ?>"><i class="fas fa-pencil-alt"></i></a>
+                            <a href="index.php?action=deletePeripheral&delId=<?= $prestationPeripheral["ID"] ?>"><i class="fas fa-times"></i></a>
+                        </td>
+                    </tr>
+                <?php endforeach ?>
+            </tbody>
+        </table>
+    </section>
+    <section>
+        <h3>Dépannage Box Internet</h3>
+        <a href="index.php?action=insertPrestaInternet"><button class="add-prestation" type="button">Ajouter une prestation</button></a>
+        <table>
+            <thead>
+                <tr>
+                    <th class="celulle-one">Catégorie</th>
+                    <th class="celulle-two">Tâche</th>
+                    <th>Prix </th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($prestationsInternet as $prestationInternet) : ?>
+                    <tr>
+                        <td data-label="Catégorie :" class="celulle-one"><?= $prestationInternet["Categorie"] ?></td>
+                        <td data-label="Tâche :" class="text-left celulle-two"><?= $prestationInternet["Tache"]  ?></td>
+                        <td data-label="Prix :"><?= $prestationInternet["Prix"] . "€" . " /heure" ?></td>
+                        <td data-label="Action :" class="container-btn">
+                            <a href="index.php?action=updatePrestaInternet&idPresta=<?= $prestationInternet["ID"] ?>"><i class="fas fa-pencil-alt"></i></a>
+                            <a href="index.php?action=deleteInternet&delId=<?= $prestationInternet["ID"] ?>"><i class="fas fa-times"></i></a>
+                        </td>
+                    </tr>
+                <?php endforeach ?>
+            </tbody>
+        </table>
+    </section>
+    <section>
+        <h3>Dépannage à distance</h3>
+        <a href="index.php?action=insertPrestaRemote"><button class="add-prestation" type="button">Ajouter une prestation</button></a>
+        <table>
+            <thead>
+                <tr>
+                    <th class="celulle-one">Catégorie</th>
+                    <th class="celulle-two">Tâche</th>
+                    <th>Prix</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($prestationsRemote as $prestationRemote) : ?>
+                    <tr>
+                        <td data-label="Catégorie :"><?= $prestationRemote["Categorie"] ?></td>
+                        <td data-label="Tâche :" class="text-left "><?= $prestationRemote["Tache"] ?></td>
+                        <td data-label="Prix :"><?= $prestationRemote["Prix"] . "€" . " /heure" ?></td>
+                        <td data-label="Action :" class="container-btn">
+                            <a href="index.php?action=updatePrestaRemote&idPresta=<?= $prestationRemote["ID"] ?>"><i class="fas fa-pencil-alt"></i></a>
+                            <a href="index.php?action=deleteRemote&delId=<?= $prestationRemote["ID"] ?>"><i class="fas fa-times"></i></a>
+                        </td>
+                    </tr>
+                <?php endforeach ?>
+            </tbody>
+        </table>
+    </section>
+</article>

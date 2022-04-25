@@ -1,0 +1,35 @@
+<section class="areaUser">
+    <div class="containerUser">
+        <div class="last-order">
+            <div class="welcome-user">
+                <img src="www/img/Avatar.png" alt="picture-user">
+                <p>Bonjour <strong><?= $_SESSION['User']['Prenom'] ?></strong></p>
+            </div>
+            <div class="container-product">
+                <h4>Mon dernier article commandé</h4>
+                <?php if (!empty($lastOrder)) : ?>
+                    <div class="container-last-order">
+                        <div>
+                            <img src="www/img/images-shop/<?= $lastOrder["Photo"] ?>" alt="picture-last-order">
+                        </div>
+                        <div class="detail-last-order">
+                            <p><?= $lastOrder["Produit"] ?></p>
+                            <small>Commandé le <?= $lastOrder["Date"] ?></small>
+                            <p><?= $lastOrder["Prix_unitaire"] . " €" ?></p>
+                            <small>Quantité : <?= $lastOrder["Quantite"] ?></small>
+                        </div>
+                    </div>
+                    <a href="index.php?action=detailslastOrder&idLastOrder=<?= $lastOrder["ID_commande"] ?>"><button type=button>Voir la commande</button></a>
+                <?php else : ?>
+                    <?php echo "<p>Vous n'avez pas encore de commande</p>" ?>
+                <?php endif ?>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li class="myOrder"><a href="index.php?action=detailslastOrder&idLastOrder=<?= $lastOrder["ID_commande"] ?>">Mes commandes</a></li>
+                <li class="myInformations"><a href="index.php?action=displayInformationUser">Mes informations personnelles</a></li>
+            </ul>
+        </nav>
+    </div>
+</section>
