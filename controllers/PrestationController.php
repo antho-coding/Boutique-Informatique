@@ -81,8 +81,7 @@ class PrestationController
                 $updatePresta = $this->prestation->updatePrestationComputer($category, $description, $price, $id);
 
                 if ($updatePresta) {
-                    $error = "Votre modification a bien été effectué";
-                    header("location:index.php?action=manageRepair&error=" . $error);
+                    header("location:index.php?action=manageRepair");
                 } else {
 
                     $error = "Une erreur est survenu";
@@ -214,7 +213,7 @@ class PrestationController
 
                 if ($updatePresta) {
 
-                    $error = "Votre modification a bien été effectué";
+                    header("location:index.php?action=manageRepair");
                 } else {
 
                     $error = "Une erreur est survenu";
@@ -302,7 +301,7 @@ class PrestationController
 
                 if ($updatePresta) {
 
-                    $error = "Votre modification a bien été effectué";
+                    header("location:index.php?action=manageRepair");
                 } else {
 
                     $error = "Une erreur est survenu";
@@ -390,7 +389,7 @@ class PrestationController
 
                 if ($updatePresta) {
 
-                    $error = "Votre modification a bien été effectué";
+                    header("location:index.php?action=manageRepair");
                 } else {
 
                     $error = "Une erreur est survenu";

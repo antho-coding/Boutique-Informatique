@@ -54,33 +54,32 @@ class HomeControllers
                 $name = htmlspecialchars($_FILES['picture']['name']);
                 $tmpName = $_FILES['picture']['tmp_name'];
                 $size = $_FILES['picture']['size'];
-
+                // var_dump($size);
                 $tabExtension = explode('.', $name);
                 $extension = strtolower(end($tabExtension));
                 $extensions = ['jpg', 'png', 'jpeg', 'gif'];
                 $maxSize = 2000000; //2Mo
 
-                if (in_array($extension, $extensions) && ($size <= $maxSize)) {
+                if (in_array($extension, $extensions) && ($size <= $maxSize) && ($size != 0)) {
                     $uniqueName = uniqid('', true);
                     $file = $uniqueName . "." . $extension;
 
                     //download
                     move_uploaded_file($tmpName, 'www/img/images-sliders/' . $file);
+
+                    // Update picture
+                    $insertSlide = $this->home->addSlide($file);
+
+                    if ($insertSlide) {
+
+                        $error = "La slide a bien été rajoutée.";
+                    } else {
+
+                        $error = "Une erreur est survenue.";
+                    }
                 } else {
 
                     $error = "Mauvaise extension ou taille trop grande";
-                }
-
-                // Update picture
-                $insertSlide = $this->home->addSlide($file);
-
-                if ($insertSlide) {
-
-                    $error = "La slide a bien été rajoutée.";
-                    // header("location:index.php?action=manageSlider&error=" . $error);
-                } else {
-
-                    $error = "Une erreur est survenue.";
                 }
             }
 

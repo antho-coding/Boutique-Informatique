@@ -11,7 +11,6 @@ class UserController
 {
 
     private $user;
-    private $orderController;
     private $order;
 
 
@@ -19,7 +18,6 @@ class UserController
     public function __construct()
     {
         $this->user = new User;
-        $this->orderController = new OrderController;
         $this->order = new Order;
     }
 
@@ -410,27 +408,33 @@ class UserController
 
     public function generateInvoiceUser()
     {
-        if (array_key_exists("idInvoice", $_GET)) {
+        if ($this->verifySessionUser()) {
 
-            $invoiceId = $_GET["idInvoice"];
+            if (array_key_exists("idInvoice", $_GET)) {
 
-            $invoice = $this->order->getOrderById($invoiceId);
-            $products = $this->order->getLastDetailOrder($invoiceId);
-            $dataUser = $this->user->getUserById($_SESSION['User']['Id']);
+                $invoiceId = $_GET["idInvoice"];
 
-            //2eme méthode avec le plugin html2pdf , on utilise ob_start et ob_get_clean(natif php) avec un template et un style pour les factures.
+                $invoice = $this->order->getOrderById($invoiceId);
+                $products = $this->order->getLastDetailOrder($invoiceId);
+                $dataUser = $this->user->getUserById($_SESSION['User']['Id']);
 
-            ob_start();
+                //2eme méthode avec le plugin html2pdf , on utilise ob_start et ob_get_clean(natif php) avec un template et un style pour les factures.
 
-            require "www/user/invoice.phtml";
+                ob_start();
 
-            $html = ob_get_clean();
+                require "www/user/invoice.phtml";
 
-            //instanciation du plugin
-            $html2pdf = new Html2Pdf('P', 'A4', 'fr');
+                $html = ob_get_clean();
 
-            $html2pdf->writeHTML($html);
-            $html2pdf->Output("MaFacture.pdf");
+                //instanciation du plugin
+                $html2pdf = new Html2Pdf('P', 'A4', 'fr');
+
+                $html2pdf->writeHTML($html);
+                $html2pdf->Output("MaFacture.pdf");
+            }
+        } else {
+
+            header("location:index.php?action=connectAccount");
         }
     }
 }

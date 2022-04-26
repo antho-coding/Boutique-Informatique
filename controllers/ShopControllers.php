@@ -117,23 +117,24 @@ class ShopControllers
                 $extensions = ['jpg', 'png', 'jpeg', 'gif'];
                 $maxSize = 2000000;
 
-                if (in_array($extension, $extensions) && ($size <= $maxSize)) {
+                if (in_array($extension, $extensions) && ($size <= $maxSize) && ($size != 0)) {
                     $uniqueName = uniqid('', true);
                     $file = $uniqueName . "." . $extension;
+
                     move_uploaded_file($tmpName, 'www/img/images-shop/' . $file);
+
+                    $newProduct = $this->shop->addProductShop($nameProduct, $description, $price, $file);
+
+                    if ($newProduct) {
+
+                        $error = " Le produit a bien été crée";
+                    } else {
+
+                        $error = "Une erreur est survenue";
+                    }
                 } else {
 
                     $error = "Mauvaise extension ou taille trop grande";
-                }
-
-                $newProduct = $this->shop->addProductShop($nameProduct, $description, $price, $file);
-
-                if ($newProduct) {
-
-                    $error = " Le produit a bien été crée";
-                } else {
-
-                    $error = "Une erreur est survenue";
                 }
             }
 
@@ -192,28 +193,28 @@ class ShopControllers
                     $extensions = ['jpg', 'png', 'jpeg', 'gif'];
                     $maxSize = 2000000;
 
-                    if (in_array($extension, $extensions) && ($size <= $maxSize)) {
+                    if (in_array($extension, $extensions) && ($size <= $maxSize) && ($size != 0)) {
                         $uniqueName = uniqid('', true);
                         $file = $uniqueName . "." . $extension;
                         move_uploaded_file($tmpName, 'www/img/images-shop/' . $file);
+
+                        // Update if picture
+                        $updateProduct = $this->shop->updateProductShop($nameProduct, $description, $price, $file, $idProduct);
+
+                        if ($updateProduct) {
+
+                            //Delete Old picture
+                            $routeOldPict = "www/img/images-shop/" . $oldPicture;
+                            $delOldPicture = unlink($routeOldPict);
+
+                            header("location:index.php?action=manageShop");
+                        } else {
+
+                            $error = "Une erreur est survenue.";
+                        }
                     } else {
 
                         $error = "Mauvaise extension ou taille trop grande";
-                    }
-
-                    // Update if picture
-                    $updateProduct = $this->shop->updateProductShop($nameProduct, $description, $price, $file, $idProduct);
-
-                    //Delete Old picture
-                    $routeOldPict = "www/img/images-shop/" . $oldPicture;
-                    $delOldPicture = unlink($routeOldPict);
-
-                    if ($updateProduct) {
-
-                        header("location:index.php?action=manageShop");
-                    } else {
-
-                        $error = "Une erreur est survenue.";
                     }
                 } else {
                     //update else picture

@@ -107,15 +107,16 @@ class ContactControllers
 
     public function generatePdfDetailsForm()
     {
-        if (array_key_exists("idForm", $_GET)) {
+        if ($this->admin->verifySessionAdmin()) {
+            if (array_key_exists("idForm", $_GET)) {
 
-            $detailForm = $this->contact->getContactFormById($_GET["idForm"]);
+                $detailForm = $this->contact->getContactFormById($_GET["idForm"]);
 
-            //instanciation du plugin
-            $html2pdf = new Html2Pdf('P', 'A4', 'fr');
+                //instanciation du plugin
+                $html2pdf = new Html2Pdf('P', 'A4', 'fr');
 
-            //template et style pour le plugin, selon la doc
-            $html = "
+                //template et style pour le plugin, selon la doc
+                $html = "
             
             <page>
 
@@ -165,8 +166,12 @@ class ContactControllers
 
             </page> ";
 
-            $html2pdf->writeHTML($html);
-            $html2pdf->Output("detail-form.pdf");
+                $html2pdf->writeHTML($html);
+                $html2pdf->Output("detail-form.pdf");
+            }
+        } else {
+
+            header("location:index.php");
         }
     }
 }

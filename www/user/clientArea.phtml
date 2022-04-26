@@ -27,7 +27,9 @@
         </div>
         <nav>
             <ul>
-                <li class="myOrder"><a href="index.php?action=detailslastOrder&idLastOrder=<?= $lastOrder["ID_commande"] ?>">Mes commandes</a></li>
+                <?php if (!empty($lastOrder)) : ?>
+                    <li class="myOrder"><a href="index.php?action=detailslastOrder&idLastOrder=<?= $lastOrder["ID_commande"] ?>">Mes commandes</a></li>
+                <?php endif ?>
                 <li class="myInformations"><a href="index.php?action=displayInformationUser">Mes informations personnelles</a></li>
             </ul>
         </nav>
