@@ -61,11 +61,13 @@ class AdminController
 
                 $error = "Votre email est incorrect";
             }
-        } else {
+        } elseif (isset($_POST["email"]) && empty($_POST["email"]) && isset($_POST["password"]) && empty($_POST["password"])) {
 
-            $title = "Connection admin";
-            $template = "www/admin/loginAdmin";
-            require "www/layaoutConnectUser.phtml";
+            $error = "Merci de remplir correctement les champs du formulaire";
         }
+
+        $title = "Connection admin";
+        $template = "www/admin/loginAdmin";
+        require "www/layaoutConnectUser.phtml";
     }
 }
